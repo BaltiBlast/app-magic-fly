@@ -14,13 +14,13 @@ const loginControllers = {
     const hashedPassword = user.user_password;
     const isValidPassword = await bcrypt.compare(password, hashedPassword);
 
-    if (isValidPassword && email === user.user_email) {
-      console.log("Password is valid");
-      res.redirect("/dashboard");
-    } else {
-      console.log("Invalid password");
-      res.redirect("/login");
+    if (!isValidPassword || email !== user.user_email) {
+      const errorMessage = "Informations invalides";
+      return res.render("login", { errorMessage });
     }
+
+    req.session.user = true;
+    res.redirect("/dashboard");
   },
 };
 

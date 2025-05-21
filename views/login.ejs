@@ -1,6 +1,9 @@
 <%- include('partials/header.ejs') %>
 
 <form class="container" action="/login" method="POST">
+  <% if (locals.errorMessage) { %>
+  <p><%=errorMessage%></p>
+  <%}%>
   <div>
     <label for="email">Email :</label>
     <input type="email" id="email" name="email" required />
