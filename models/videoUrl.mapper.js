@@ -1,6 +1,6 @@
 const CoreMapper = require("./core.mapper");
 
-class VideoUrl extends CoreMapper {
+class VideoUrlMapper extends CoreMapper {
   tableName = "video_url";
 
   async getVideoUrl() {
@@ -15,4 +15,4 @@ class VideoUrl extends CoreMapper {
   }
 }
 
-module.exports = VideoUrl;
+module.exports = VideoUrlMapper;

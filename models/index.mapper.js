@@ -1,8 +1,10 @@
 const db = require("../configs/airtable");
-const VideoUrl = require("./videoUrl.mapper");
-const Pictures = require("./pictures.mapper");
+const VideoUrlMapper = require("./videoUrl.mapper");
+const PicturesMapper = require("./pictures.mapper");
+const UserMapper = require("./user.mapper");
 
 module.exports = {
-  VideoUrl: new VideoUrl(db),
-  Pictures: new Pictures(db),
+  VideoUrlMapper: new VideoUrlMapper(db),
+  PicturesMapper: new PicturesMapper(db),
+  UserMapper: new UserMapper(db),
 };

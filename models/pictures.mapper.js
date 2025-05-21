@@ -1,9 +1,9 @@
 const CoreMapper = require("./core.mapper");
 
-class Pictures extends CoreMapper {
+class PicturesMapper extends CoreMapper {
   tableName = "picture_url";
 
-  async getPictures() {
+  async getPicturesMapper() {
     const records = await this.db(this.tableName).select().all();
 
     const urls = records.map((record) => {
@@ -15,4 +15,4 @@ class Pictures extends CoreMapper {
   }
 }
 
-module.exports = Pictures;
+module.exports = PicturesMapper;
