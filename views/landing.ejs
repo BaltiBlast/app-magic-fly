@@ -35,11 +35,11 @@
 <!-- YOUTUBE SECTION -->
 <section id="youtube" class="youtube-section padding-section">
   <section class="youtube-players padding-section">
-    <% if(urls && urls.length > 0) { %>
+    <% if(videos && videos.length > 0) { %>
     <!--  -->
-    <% urls.forEach((el) => { %>
+    <% videos.forEach((video) => { %>
     <iframe
-      src="<%= el.url %>"
+      src="<%= video.url %>"
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -57,7 +57,13 @@
 
   <!-- SECTION PHOTO -->
   <section id="pictures" class="pictures-section padding-section">
-    <p>photos</p>
+    <% if(pictures && pictures.length > 0) { %>
+    <!--  -->
+    <% pictures.forEach((picture) => { %>
+    <img src="<%= picture.url %>" />
+    <% }); %>
+    <!--  -->
+    <%}%>
   </section>
 </section>
 
