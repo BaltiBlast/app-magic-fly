@@ -3,7 +3,7 @@ const CoreMapper = require("./core.mapper");
 class PicturesMapper extends CoreMapper {
   tableName = "picture_url";
 
-  async getPicturesMapper() {
+  async getPictures() {
     const records = await this.db(this.tableName).select().all();
 
     const urls = records.map((record) => {
@@ -12,6 +12,18 @@ class PicturesMapper extends CoreMapper {
     });
 
     return urls;
+  }
+
+  async addPicture(pictureData) {
+    const { cloudinaryId, pictureUrl } = pictureData;
+    await this.db(this.tableName).create([
+      {
+        fields: {
+          cloudinary_id: cloudinaryId,
+          url: pictureUrl,
+        },
+      },
+    ]);
   }
 }
 

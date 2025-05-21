@@ -4,7 +4,7 @@ const landingControllers = {
   getLandingPage: async (req, res) => {
     try {
       const videos = await VideoUrlMapper.getVideoUrl();
-      const pictures = await PicturesMapper.getPicturesMapper();
+      const pictures = await PicturesMapper.getPictures();
 
       res.render("landing", { videos, pictures });
     } catch (error) {
