@@ -1,4 +1,5 @@
 const express = require("express");
+const fileUpload = require("express-fileupload");
 require("dotenv").config();
 const session = require("express-session");
 const router = require("./router");
@@ -20,6 +21,7 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(fileUpload());
 app.use(router);
 
 app.listen(PORT, () => {

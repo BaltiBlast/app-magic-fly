@@ -1,5 +1,15 @@
 <%- include('partials/header.ejs') %>
 
-<section><h2>Dashboard</h2></section>
+<!-- DASHBOARD PICTURES -->
+<section>
+  <form action="/add-picture" method="post" enctype="multipart/form-data">
+    <label for="image">
+      Sélectionner une image
+      <input type="file" id="image" name="image" accept="image/*" required />
+    </label>
+
+    <button type="submit">Télécharger l'image</button>
+  </form>
+</section>
 
 <%- include('partials/footer.ejs') %>
