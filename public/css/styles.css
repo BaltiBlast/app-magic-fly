@@ -89,8 +89,8 @@ header {
 .pictures-section,
 .youtube-players {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colonnes de largeur égale */
-  gap: 15px; /* Espacement entre les photos */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
   width: 100%;
 }
 
@@ -98,8 +98,8 @@ header {
 .youtube-players iframe {
   width: 100%;
   height: auto;
-  object-fit: cover; /* Pour maintenir les proportions des images */
-  border-radius: 4px; /* Optionnel: pour des coins légèrement arrondis */
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 @media screen and (max-width: 768px) {
@@ -109,10 +109,72 @@ header {
   }
 }
 
-/* Mobile: 1 colonne */
 @media screen and (max-width: 480px) {
   .pictures-section,
   .youtube-players {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* DASHBOARD */
+
+.dashboard-pictures {
+  display: grid;
+  gap: 20px;
+  margin-top: 20px;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.photo-card {
+  border-radius: 8px;
+  background: var(--pico-primary);
+}
+
+.photo-wrapper {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: var(--pico-primary);
+}
+
+.photo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-info {
+  padding: 15px;
+}
+
+.photo-info button {
+  margin: 0;
+  padding: 5px 10px;
+}
+
+@media (max-width: 480px) {
+  .photo-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .photo-info form {
+    width: 100%;
+  }
+
+  .photo-info button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard-pictures {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .dashboard-pictures {
     grid-template-columns: 1fr;
   }
 }

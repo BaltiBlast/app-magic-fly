@@ -1,15 +1,35 @@
 <%- include('partials/header.ejs') %>
 
 <!-- DASHBOARD PICTURES -->
-<section>
+<section class="container">
   <form action="/add-picture" method="post" enctype="multipart/form-data">
     <label for="image">
       Sélectionner une image
-      <input type="file" id="image" name="image" accept="image/*" required />
+      <input type="file" name="image" accept="image/*" required />
     </label>
-
     <button type="submit">Télécharger l'image</button>
   </form>
+
+  <!-- Affichage et gestion des photos existantes -->
+  <h2>Photos</h2>
+  <% if (pictures && pictures.length > 0) { %>
+  <div class="dashboard-pictures">
+    <% pictures.forEach(picture => { %>
+    <div class="photo-card">
+      <div class="photo-wrapper">
+        <img src="<%= picture.url %>" alt="Image <%= picture.id %>" loading="lazy" />
+      </div>
+      <div class="photo-info">
+        <form action="/delete-picture/<%= picture.recordId %>/<%= picture.id %>" method="post">
+          <button type="submit" class="secondary outline">Supprimer</button>
+        </form>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+  <% } else { %>
+  <p>Aucune photo disponible.</p>
+  <% } %>
 </section>
 
 <%- include('partials/footer.ejs') %>
