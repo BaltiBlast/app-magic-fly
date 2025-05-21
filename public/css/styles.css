@@ -1,0 +1,209 @@
+/* ------------------------------------------------------------------------------------------ */
+/* PICO CSS OVERWRITE */
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --pico-background-color: #d7645f;
+  --pico-primary: #fff;
+  --pico-primary-background: #d7645f;
+  --pico-primary-hover-background: #d7655fef;
+  --pico-primary-hover: #fff;
+  --pico-color: #fff;
+  --pico-h1-color: #fff;
+  --pico-primary-focus: #d7645f;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* GENERIC CSS */
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.padding-section {
+  padding: 3%;
+}
+
+.txt-uppercase {
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* HEADER SECTION */
+.header-title {
+  line-height: 1;
+}
+
+.title-name {
+  line-height: 0.5;
+  font-size: 7.5rem;
+}
+
+.title-activity {
+  font-size: 3.2rem;
+}
+
+.header-arrow-down {
+  width: 4%;
+  margin-bottom: 30px;
+}
+
+.arrow-animation {
+  animation: bounce 1.5s infinite ease-in-out;
+  display: inline-block;
+}
+/* ------------------------------------------------------------------------------------------ */
+/* PRESENTATION SECTION */
+.presentation-section {
+  background-color: #fff;
+  gap: 3%;
+}
+
+.presentation-picture {
+  text-align: center;
+  width: 100%;
+}
+
+.presentation-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 2;
+  font-size: 1.3rem;
+  color: #d7645f;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* YOUTUBE PLAYER */
+.youtube-players iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Méthode moderne pour maintenir le ratio d'aspect */
+  border: none; /* Remplace frameborder="0" */
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* PICTURE SECTION */
+
+.pictures-section,
+.youtube-players {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes de largeur égale */
+  gap: 15px; /* Espacement entre les photos */
+  width: 100%;
+}
+
+.pictures-section img,
+.youtube-players iframe {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Pour maintenir les proportions des images */
+  border-radius: 4px; /* Optionnel: pour des coins légèrement arrondis */
+}
+
+@media screen and (max-width: 768px) {
+  .pictures-section,
+  .youtube-players {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: 1 colonne */
+@media screen and (max-width: 480px) {
+  .pictures-section,
+  .youtube-players {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* FONT STYLE */
+/* Lato font style */
+.lato-thin {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.lato-light {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* titillium font style */
+.titillium-web-black {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* FOOTER */
+footer * {
+  color: #000;
+}
+
+footer {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* RESPONCIVE PHONE SCREEN */
+@media screen and (max-width: 600px) {
+  .title-name {
+    font-size: 4.5rem;
+  }
+
+  .title-activity {
+    font-size: 2rem;
+  }
+
+  .header-arrow-down {
+    width: 8%;
+  }
+
+  .presentation-text {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .contact-information-container {
+    display: contents;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1700px) {
+  .presentation-section {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* ANIMATION */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
