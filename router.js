@@ -6,7 +6,7 @@ const { ensureAuthenticated } = require("./utils/middleware");
 const { getLandingPage } = require("./controllers/landing.controllers");
 const { getLogin, postLogin } = require("./controllers/login.controllers");
 const { getDashboard } = require("./controllers/dashboard.controllers");
-const { postPicture } = require("./controllers/pictures.controllers");
+const { postAddPicture, postDeletePicture } = require("./controllers/pictures.controllers");
 
 router.get("/", getLandingPage);
 
@@ -15,6 +15,7 @@ router.post("/login", postLogin);
 
 router.get("/dashboard", ensureAuthenticated, getDashboard);
 
-router.post("/add-picture", ensureAuthenticated, postPicture);
+router.post("/add-picture", ensureAuthenticated, postAddPicture);
+router.post("/delete-picture/:recordId/:publicId", ensureAuthenticated, postDeletePicture);
 
 module.exports = router;

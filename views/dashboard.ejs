@@ -20,7 +20,10 @@
         <img src="<%= picture.url %>" alt="Image <%= picture.id %>" loading="lazy" />
       </div>
       <div class="photo-info">
-        <form action="/delete-picture/<%= picture.recordId %>/<%= picture.id %>" method="post">
+        <form
+          action="/delete-picture/<%= picture.recordId %>/<%= encodeURIComponent(picture.cloudinary_id) %>"
+          method="post"
+        >
           <button type="submit" class="secondary outline">Supprimer</button>
         </form>
       </div>

@@ -25,6 +25,10 @@ class PicturesMapper extends CoreMapper {
       },
     ]);
   }
+
+  async deletePicture(recordId) {
+    await this.db(this.tableName).destroy(recordId);
+  }
 }
 
 module.exports = PicturesMapper;
