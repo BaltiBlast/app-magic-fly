@@ -1,5 +1,5 @@
-const { VideoUrl } = require("../../models/index.mapper");
-const { Pictures } = require("../../models/index.mapper");
+const { VideoUrl } = require("../models/index.mapper");
+const { Pictures } = require("../models/index.mapper");
 
 const landingControllers = {
   getLandingPage: async (req, res) => {
