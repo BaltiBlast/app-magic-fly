@@ -35,15 +35,20 @@
 <!-- YOUTUBE SECTION -->
 <section id="youtube" class="youtube-section padding-section">
   <section class="youtube-players padding-section">
-    <p>liens youtube</p>
-    <!-- <iframe
-      src="https://www.youtube.com/embed/Tu3oyUYv3Mg?si=DZoTx877z6h5TC0m"
+    <% if(urls && urls.length > 0) { %>
+    <!--  -->
+    <% urls.forEach((el) => { %>
+    <iframe
+      src="<%= el.url %>"
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerpolicy="strict-origin-when-cross-origin"
       allowfullscreen
-    ></iframe> -->
+    ></iframe>
+    <% }); %>
+    <!--  -->
+    <%}%>
   </section>
 
   <section class="padding-section">
