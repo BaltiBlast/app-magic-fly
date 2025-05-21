@@ -6,6 +6,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(express.static("public"));
+app.set("view engine", "ejs");
+app.set("views", "./views");
 app.use(router);
 
 app.listen(PORT, () => {

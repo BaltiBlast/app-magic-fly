@@ -1,6 +1,6 @@
 const landingControllers = {
   getLandingPage: (req, res) => {
-    res.send("Get landing page");
+    res.render("landing");
   },
 };
 

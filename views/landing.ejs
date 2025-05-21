@@ -1,0 +1,59 @@
+<%- include('partials/header.ejs') %>
+
+<!-- HEADER -->
+<header>
+  <nav>
+    <ul class="lato-light">
+      <li><a href="#presentation">Présentation</a></li>
+      <li><a href="#youtube">Vidéos</a></li>
+      <li><a href="#pictures">Photos</a></li>
+      <li><a href="#contacts">Contacts</a></li>
+    </ul>
+  </nav>
+  <div class="header-title">
+    <h1 class="titillium-web-black title-name txt-uppercase">Magic Fly</h1>
+    <p class="lato-thin title-activity txt-uppercase">Musique Live</p>
+  </div>
+  <img class="header-arrow-down arrow-animation" src="/assets/svg/arrow-down-circle.svg" />
+</header>
+
+<!-- PRESENTATION -->
+<section id="presentation" class="grid presentation-section padding-section">
+  <img class="presentation-picture" src="/assets/images/presentation.jpg" alt="photo de présentation" />
+  <p class="presentation-text">
+    <span
+      ><b>Magic Fly</b> est un groupe de reprises musicales basé dans le Grand Est, à proximité du Luxembourg et de la
+      Belgique. Depuis plusieurs années, nous interprétons en live les grands classiques de la chanson française et
+      internationale, des années 70, 80, 90 jusqu’aux hits actuels. Spécialisés dans l’animation musicale d’événements,
+      nous proposons un répertoire varié et dansant, idéal pour les soirées privées, anniversaires, soirées
+      d’entreprise, événements associatifs ou fêtes locales. Notre objectif : créer une ambiance conviviale et festive à
+      travers des prestations musicales de qualité, adaptées à votre public et à vos envies.</span
+    >
+  </p>
+</section>
+
+<!-- YOUTUBE SECTION -->
+<section id="youtube" class="youtube-section padding-section">
+  <section class="youtube-players padding-section">
+    <p>liens youtube</p>
+    <!-- <iframe
+      src="https://www.youtube.com/embed/Tu3oyUYv3Mg?si=DZoTx877z6h5TC0m"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe> -->
+  </section>
+
+  <section class="padding-section">
+    <hr />
+  </section>
+
+  <!-- SECTION PHOTO -->
+  <section id="pictures" class="pictures-section padding-section">
+    <p>photos</p>
+  </section>
+</section>
+
+<%- include('partials/footer.ejs') %>
