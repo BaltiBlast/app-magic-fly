@@ -1,0 +1,22 @@
+:root {
+  --primary-color: #d7645f;
+  --primary-color-hover: #d7655fef;
+  --white-color: #fff;
+  --white-colore-hover: #ececec;
+}
+
+.primary-color {
+  color: var(--primary-color);
+}
+
+.primary-bg-color {
+  background-color: var(--primary-color);
+}
+
+.secondary-color {
+  color: var(--white-color);
+}
+
+.secondary-bg-color {
+  background-color: var(--white-color);
+}

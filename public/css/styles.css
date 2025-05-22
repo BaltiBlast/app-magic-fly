@@ -1,29 +1,10 @@
-/* ------------------------------------------------------------------------------------------ */
-/* PICO CSS OVERWRITE */
-[data-theme="light"],
-:root:not([data-theme="dark"]) {
-  --pico-background-color: #d7645f;
-  --pico-primary: #fff;
-  --pico-primary-background: #d7645f;
-  --pico-primary-hover-background: #d7655fef;
-  --pico-primary-hover: #fff;
-  --pico-color: #fff;
-  --pico-h1-color: #fff;
-  --pico-primary-focus: #d7645f;
-}
-
+@import url("./fonts.css");
+@import url("./colors.css");
 /* ------------------------------------------------------------------------------------------ */
 /* GENERIC CSS */
-header {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .padding-section {
-  padding: 3%;
+  padding: 0 5%;
 }
 
 .txt-uppercase {
@@ -36,28 +17,42 @@ header {
 
 /* ------------------------------------------------------------------------------------------ */
 /* HEADER SECTION */
-.header-title {
-  line-height: 1;
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+  padding: 5%;
+  box-sizing: border-box;
 }
 
-.title-name {
-  line-height: 0.5;
-  font-size: 7.5rem;
+header ul {
+  display: flex;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  gap: 0 clamp(0.8rem, 2vw, 2.5rem);
 }
 
-.title-activity {
-  font-size: 3.2rem;
+header a:hover {
+  color: var(--white-colore-hover);
 }
 
-.header-arrow-down {
-  width: 4%;
-  margin-bottom: 30px;
+header h1 {
+  font-size: clamp(4rem, 7vw, 10rem);
+  line-height: 0.8;
 }
 
-.arrow-animation {
+header p {
+  font-size: clamp(1.8rem, 2.5vw, 10rem);
+}
+
+header img {
   animation: bounce 1.5s infinite ease-in-out;
   display: inline-block;
+  width: clamp(3rem, 5vw, 4.5rem);
 }
+
 /* ------------------------------------------------------------------------------------------ */
 /* PRESENTATION SECTION */
 .presentation-section {
@@ -156,61 +151,6 @@ header {
   padding: 5px 10px;
 }
 
-@media (max-width: 480px) {
-  .photo-info {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .photo-info form {
-    width: 100%;
-  }
-
-  .photo-info button {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .dashboard-pictures {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .dashboard-pictures {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ------------------------------------------------------------------------------------------ */
-/* FONT STYLE */
-/* Lato font style */
-.lato-thin {
-  font-family: "Lato", sans-serif;
-  font-weight: 100;
-  font-style: normal;
-}
-
-.lato-light {
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.lato-regular {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-/* titillium font style */
-.titillium-web-black {
-  font-family: "Titillium Web", sans-serif;
-  font-weight: 900;
-  font-style: normal;
-}
-
 /* ------------------------------------------------------------------------------------------ */
 /* FOOTER */
 footer * {
@@ -222,44 +162,6 @@ footer {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-}
-
-/* ------------------------------------------------------------------------------------------ */
-/* RESPONCIVE PHONE SCREEN */
-@media screen and (max-width: 600px) {
-  .title-name {
-    font-size: 4.5rem;
-  }
-
-  .title-activity {
-    font-size: 2rem;
-  }
-
-  .header-arrow-down {
-    width: 8%;
-  }
-
-  .presentation-text {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .contact-information-container {
-    display: contents;
-  }
-
-  footer {
-    flex-direction: column;
-  }
-}
-
-@media screen and (max-width: 1700px) {
-  .presentation-section {
-    display: flex;
-    flex-direction: column;
-  }
 }
 
 /* ------------------------------------------------------------------------------------------ */
