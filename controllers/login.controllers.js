@@ -22,6 +22,11 @@ const loginControllers = {
     req.session.user = true;
     res.redirect("/dashboard");
   },
+
+  postLogout: (req, res) => {
+    req.session.destroy();
+    res.redirect("/login");
+  },
 };
 
 module.exports = loginControllers;

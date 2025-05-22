@@ -30,6 +30,10 @@ header {
   text-transform: uppercase;
 }
 
+.txt-ctr {
+  text-align: center;
+}
+
 /* ------------------------------------------------------------------------------------------ */
 /* HEADER SECTION */
 .header-title {

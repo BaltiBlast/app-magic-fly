@@ -1,38 +1,55 @@
 <%- include('partials/header.ejs') %>
 
-<!-- DASHBOARD PICTURES -->
 <section class="container">
-  <form action="/add-picture" method="post" enctype="multipart/form-data">
-    <label for="image">
-      Sélectionner une image
-      <input type="file" name="image" accept="image/*" required />
-    </label>
-    <button type="submit">Télécharger l'image</button>
+  <!-- NAVBAR -->
+  <nav class="container">
+    <ul>
+      <li>
+        <span class="titillium-web-black txt-uppercase">Magic Fly</span>
+        <span class="lato-thin txt-uppercase">Dashboard</span>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <form action="/logout" method="post">
+          <button type="submit" class="outline">Déconnexion</button>
+        </form>
+      </li>
+    </ul>
+  </nav>
+
+  <form class="grid" action="/add-picture" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" required />
+    <button type="submit" class="secondary">Télécharger l'image</button>
   </form>
 
-  <!-- Affichage et gestion des photos existantes -->
-  <h2>Photos</h2>
-  <% if (pictures && pictures.length > 0) { %>
-  <div class="dashboard-pictures">
-    <% pictures.forEach(picture => { %>
-    <div class="photo-card">
-      <div class="photo-wrapper">
-        <img src="<%= picture.url %>" alt="Image <%= picture.id %>" loading="lazy" />
+  <hr />
+
+  <!-- DASHBOARD PICTURES -->
+  <section>
+    <!-- Affichage et gestion des photos existantes -->
+    <% if (pictures && pictures.length > 0) { %>
+    <div class="dashboard-pictures">
+      <% pictures.forEach(picture => { %>
+      <div class="photo-card">
+        <div class="photo-wrapper">
+          <img src="<%= picture.url %>" alt="Image <%= picture.id %>" loading="lazy" />
+        </div>
+        <div class="photo-info">
+          <form
+            action="/delete-picture/<%= picture.recordId %>/<%= encodeURIComponent(picture.cloudinary_id) %>"
+            method="post"
+          >
+            <button type="submit" class="secondary outline">Supprimer</button>
+          </form>
+        </div>
       </div>
-      <div class="photo-info">
-        <form
-          action="/delete-picture/<%= picture.recordId %>/<%= encodeURIComponent(picture.cloudinary_id) %>"
-          method="post"
-        >
-          <button type="submit" class="secondary outline">Supprimer</button>
-        </form>
-      </div>
+      <% }) %>
     </div>
-    <% }) %>
-  </div>
-  <% } else { %>
-  <p>Aucune photo disponible.</p>
-  <% } %>
+    <% } else { %>
+    <p class="txt-ctr"><i>Aucune photo disponible.</i></p>
+    <% } %>
+  </section>
 </section>
 
 <%- include('partials/footer.ejs') %>
