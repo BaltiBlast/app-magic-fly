@@ -1,7 +1,7 @@
 <%- include('partials/header.ejs') %>
 
 <!-- HEADER -->
-<header class="padding-section">
+<header class="padding-section primary-bg-color">
   <nav>
     <ul class="lato-light">
       <li><a class="secondary-color" href="#presentation">Présentation</a></li>
@@ -18,7 +18,7 @@
 </header>
 
 <!-- PRESENTATION -->
-<section id="presentation" class="presentation padding-section primary-color lato-light">
+<section id="presentation" class="presentation padding-section primary-color lato-light secondary-bg-color">
   <img src="/assets/images/presentation.jpg" alt="photo de présentation" />
   <div>
     <p>
@@ -37,12 +37,10 @@
   </div>
 </section>
 
-<!-- YOUTUBE SECTION -->
-<section id="youtube" class="youtube-section padding-section">
-  <section class="youtube-players padding-section">
-    <% if(videos && videos.length > 0) { %>
-    <!--  -->
-    <% videos.forEach((video) => { %>
+<!-- VIDEOS -->
+<section id="youtube" class="videos padding-section primary-bg-color">
+  <div>
+    <% if(videos && videos.length > 0) { %> <% videos.forEach((video) => { %>
     <iframe
       src="<%= video.url %>"
       title="YouTube video player"
@@ -50,26 +48,23 @@
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerpolicy="strict-origin-when-cross-origin"
       allowfullscreen
-    ></iframe>
-    <% }); %>
-    <!--  -->
-    <%}%>
-  </section>
+    >
+    </iframe>
+    <% }); %> <% } %>
+  </div>
+</section>
 
-  <section class="padding-section">
-    <hr />
-  </section>
+<section class="padding-section primary-bg-color">
+  <hr />
+</section>
 
-  <!-- SECTION PHOTO -->
-  <section id="pictures" class="pictures-section padding-section">
-    <% if(pictures && pictures.length > 0) { %>
-    <!--  -->
-    <% pictures.forEach((picture) => { %>
-    <img src="<%= picture.url %>" />
-    <% }); %>
-    <!--  -->
-    <%}%>
-  </section>
+<!-- PICTURES -->
+<section id="pictures" class="pictures padding-section primary-bg-color">
+  <div>
+    <% if(pictures && pictures.length > 0) { %> <% pictures.forEach((picture) => { %>
+    <img src="<%= picture.url %>" alt="Photo Magic Fly" />
+    <% }); %> <% } %>
+  </div>
 </section>
 
 <footer class="padding-section" id="contacts">

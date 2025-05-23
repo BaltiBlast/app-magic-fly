@@ -27,7 +27,6 @@ header {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--primary-color);
   box-sizing: border-box;
 }
 
@@ -61,7 +60,6 @@ header img {
 .presentation {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  background-color: #fff;
   font-size: clamp(1rem, 1.5vw, 3rem);
   line-height: 1.6;
 }
@@ -75,50 +73,60 @@ header img {
   padding: 5%;
 }
 
+/* ------------------------------------------------------------------------------------------ */
+/* MEDIAS SECTION */
+.videos {
+  padding-bottom: 0;
+}
+
+.videos div {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.videos iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+}
+
+.pictures {
+  padding-top: 0;
+}
+
+.pictures div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.pictures img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 @media (max-width: 1024px) {
   .presentation {
     grid-template-columns: repeat(1, 1fr);
   }
-}
 
-/* ------------------------------------------------------------------------------------------ */
-/* YOUTUBE PLAYER */
-.youtube-players iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9; /* Méthode moderne pour maintenir le ratio d'aspect */
-  border: none; /* Remplace frameborder="0" */
-}
+  .presentation div {
+    padding: 5% 0;
+  }
 
-/* ------------------------------------------------------------------------------------------ */
-/* PICTURE SECTION */
-
-.pictures-section,
-.youtube-players {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  width: 100%;
-}
-
-.pictures-section img,
-.youtube-players iframe {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-@media screen and (max-width: 768px) {
-  .pictures-section,
-  .youtube-players {
-    grid-template-columns: repeat(1rem, 1fr);
+  .videos div,
+  .pictures div {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media screen and (max-width: 480px) {
-  .pictures-section,
-  .youtube-players {
-    grid-template-columns: 1fr;
+  .videos div,
+  .pictures div {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
