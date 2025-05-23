@@ -1,22 +1,26 @@
 <%- include('partials/header.ejs') %>
-
-<form class="container" action="/login" method="POST">
-  <% if (locals.errorMessage) { %>
-  <p><%=errorMessage%></p>
-  <%}%>
-  <div>
-    <label for="email">Email :</label>
-    <input type="email" id="email" name="email" required />
+<section class="login primary-bg-color secondary-color">
+  <div class="login-title">
+    <span class="titillium-web-black txt-uppercase">Magice Fly</span>
+    <span class="lato-thin">Dashboard</span>
   </div>
+  <form action="/login" method="POST">
+    <% if (locals.errorMessage) { %>
+    <p class="txt-ctr lato-regular primary-color secondary-bg-color bold"><%=errorMessage%></p>
+    <%}%>
+    <div>
+      <label class="lato-regular bold" for="email">Email :</label>
+      <input type="email" id="email" name="email" required />
+    </div>
 
-  <div>
-    <label for="password">Mot de passe :</label>
-    <input type="password" id="password" name="password" required />
-  </div>
+    <div>
+      <label class="lato-regular bold" for="password">Mot de passe :</label>
+      <input type="password" id="password" name="password" required />
+    </div>
 
-  <div>
-    <button type="submit">Se connecter</button>
-  </div>
-</form>
-
+    <div>
+      <button type="submit">Se connecter</button>
+    </div>
+  </form>
+</section>
 <%- include('partials/footer.ejs') %>

@@ -138,14 +138,6 @@ footer input[type="submit"]:hover {
   background-color: var(--primary-color-hover);
 }
 
-footer form input,
-footer form select,
-footer form textarea,
-footer form button {
-  width: 100%;
-  box-sizing: border-box;
-}
-
 form textarea {
   min-height: 100px;
   resize: vertical;
@@ -165,6 +157,58 @@ footer form textarea {
 footer p {
   font-size: clamp(1.3rem, 1.5vw, 1.6rem);
   margin-bottom: 1rem;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* LOGIN PAGE */
+
+.login {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.login-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 2rem;
+}
+
+.login p {
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  margin: 2rem 0;
+  padding: 0.8rem;
+  border-radius: 8px;
+}
+
+.login form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: clamp(20rem, 20vw, 25rem);
+}
+
+.login label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.login form input,
+.login form button {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login form input,
+.login form button {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
 }
 
 @media (max-width: 1024px) {
@@ -197,42 +241,6 @@ footer p {
   .pictures div {
     grid-template-columns: repeat(1, 1fr);
   }
-}
-
-/* ------------------------------------------------------------------------------------------ */
-/* DASHBOARD */
-
-.dashboard-pictures {
-  display: grid;
-  gap: 20px;
-  margin-top: 20px;
-  grid-template-columns: repeat(5, 1fr);
-}
-
-.photo-card {
-  border-radius: 8px;
-  background: var(--pico-primary);
-}
-
-.photo-wrapper {
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  background-color: var(--pico-primary);
-}
-
-.photo-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.photo-info {
-  padding: 15px;
-}
-
-.photo-info button {
-  margin: 0;
-  padding: 5px 10px;
 }
 
 /* ------------------------------------------------------------------------------------------ */
