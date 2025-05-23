@@ -67,41 +67,43 @@
   </div>
 </section>
 
-<footer class="padding-section" id="contacts">
-  <div class="contact-information-container">
-    <p class="contact-information">📞 06 81 08 20 64</p>
-    <p class="contact-information">✉️ groupemagicfly@gmail.com</p>
+<!-- FOOTER  -->
+<footer class="footer padding-section secondary-bg-color lato-regular" id="contacts">
+  <div class="footer-infos">
+    <p>📞 06 81 08 20 64</p>
+    <p>✉️ groupemagicfly@gmail.com</p>
   </div>
   <form action="/send-email-contact" method="post">
-    <label>
-      Nom / Prénom
+    <div>
+      <label class="lato-regular bold" for="fullName">Nom / Prénom</label>
       <input name="fullName" placeholder="Jean Dupont" autocomplete="given-name" required />
-    </label>
-    <fieldset class="grid">
-      <label>
-        Email
-        <input type="email" name="email" placeholder="jean-dupont@mail.com" autocomplete="email" required />
-      </label>
-      <label>
-        Téléphone
-        <input type="number" name="phone" placeholder="06 01 02 03 04" autocomplete="email" required />
-      </label>
-    </fieldset>
-    <label>
-      Objet
+    </div>
+    <div>
+      <label class="lato-regular bold" for="email">Adresse email</label>
+      <input type="email" name="email" placeholder="jean-dupont@mail.com" autocomplete="email" required />
+    </div>
+
+    <div>
+      <label class="lato-regular bold" for="phone">Téléphone</label>
+      <input type="number" name="phone" placeholder="06 01 02 03 04" autocomplete="email" required />
+    </div>
+
+    <div>
+      <label class="lato-regular bold" for="subject">Objet</label>
       <select name="subject" required>
         <option value="" disabled selected>Choisissez un objet</option>
         <option value="Demande de devis">Demande de devis</option>
         <option value="Demande d'informations">Demande d'informations</option>
         <option value="Autre">Autre</option>
       </select>
-    </label>
-    <label>
-      Message
-      <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
-    </label>
+    </div>
 
-    <input type="submit" value="Envoyer" />
+    <div>
+      <label class="lato-regular bold" for="message">Message</label
+      ><textarea name="message" placeholder="Votre message" rows="7" required></textarea>
+    </div>
+
+    <input class="primary-bg-color secondary-color" type="submit" value="Envoyer" />
   </form>
 </footer>
 
