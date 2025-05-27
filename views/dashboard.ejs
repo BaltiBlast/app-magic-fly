@@ -1,10 +1,10 @@
 <%- include('partials/header.ejs') %>
 
-<section class="dashboard padding-section primary-bg-color">
+<section class="dashboard padding-section secondary-bg-color">
   <!-- NAVBAR -->
   <nav>
     <ul>
-      <li class="dashboard-title secondary-color">
+      <li class="dashboard-title primar-color">
         <span class="titillium-web-black txt-uppercase">Magic Fly</span>
         <span class="lato-thin">Dashboard</span>
       </li>
@@ -20,7 +20,7 @@
     </ul>
   </nav>
 
-  <section class="dashboard-videos primary-bg-color">
+  <section class="dashboard-videos">
     <form class="video-form-add" action="/add-video-link" method="post">
       <div>
         <input class="input-form-video" type="url" name="url" placeholder="URL Video Youtube" />
@@ -28,7 +28,7 @@
       <button type="submit">Ajouter</button>
     </form>
 
-    <div class="dashboard-videos-gallery">
+    <div class="dashboard-media-gallery">
       <% if(videos && videos.length > 0) { %> <% videos.forEach((video) => { %>
       <div class="video-gallery secondary-bg-color">
         <iframe
@@ -46,10 +46,38 @@
           method="post"
           class="delete-video-form"
         >
-          <button type="submit" class="delete-btn">Supprimer</button>
+          <button type="submit">Supprimer</button>
         </form>
       </div>
-      <% });} %>
+      <% })} else { %>
+      <p class="lato-light">Tu n'as pas encore ajouté de vidéo... 🎥</p>
+      <% } %>
+    </div>
+  </section>
+
+  <hr />
+
+  <section>
+    <form class="form-picture" action="/add-picture" method="post" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*" required />
+      <button type="submit" class="secondary">Télécharger l'image</button>
+    </form>
+
+    <div class="dashboard-media-gallery">
+      <% if (pictures && pictures.length > 0) { %> <% pictures.forEach(picture => { %>
+      <div class="picture-gallery secondary-bg-color">
+        <img class="photo-card" src="<%= picture.url %>" alt="Image <%= picture.id %>" loading="lazy" />
+        <form
+          class="picture-form-delete"
+          action="/delete-picture/<%= picture.recordId %>/<%= encodeURIComponent(picture.cloudinary_id) %>"
+          method="post"
+        >
+          <button type="submit" class="secondary outline">Supprimer</button>
+        </form>
+      </div>
+      <% })} else { %>
+      <p class="lato-light">Tu n'as pas encore ajouté de photo... 📸</p>
+      <% } %>
     </div>
   </section>
 </section>

@@ -218,6 +218,10 @@ footer p {
   box-sizing: border-box;
 }
 
+.dashboard-videos {
+  margin-bottom: 5rem;
+}
+
 .dashboard nav {
   display: flex;
   justify-content: space-between;
@@ -246,18 +250,19 @@ footer p {
   box-sizing: border-box;
   padding: 0.8rem;
   border-radius: 4px;
-  border: none;
+  border: 1px solid black;
   margin-bottom: 1rem;
 }
 
-.dashboard-videos-gallery {
+.dashboard-media-gallery {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(4, 1fr);
 }
 
-.dashboard-videos-gallery div {
+.dashboard-media-gallery div {
   border-radius: 8px;
+  border: 1px solid;
 }
 
 .dashboard-videos iframe {
@@ -266,17 +271,30 @@ footer p {
   border-radius: 8px 8px 0 0;
 }
 
-.video-form-delete {
+.video-form-delete,
+.picture-form-delete {
   padding: 1rem;
 }
 
-.dashboard-videos button {
+.dashboard-videos button,
+.picture-gallery button {
   width: 100%;
   background-color: white;
   border: 1px solid black;
   border-radius: 4px;
   padding: 0.8rem;
   cursor: pointer;
+}
+
+.form-picture {
+  margin: 3rem 0;
+}
+
+.photo-card {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
 }
 
 @media (max-width: 1024px) {
@@ -289,7 +307,7 @@ footer p {
     padding: 5% 0;
   }
 
-  .dashboard-videos-gallery,
+  .dashboard-media-gallery,
   .videos div,
   .pictures div {
     grid-template-columns: repeat(2, 1fr);
@@ -306,7 +324,7 @@ footer p {
 }
 
 @media screen and (max-width: 480px) {
-  .dashboard-videos-gallery,
+  .dashboard-media-gallery,
   .videos div,
   .pictures div {
     grid-template-columns: repeat(1, 1fr);
