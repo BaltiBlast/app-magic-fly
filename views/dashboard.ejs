@@ -1,54 +1,56 @@
 <%- include('partials/header.ejs') %>
 
-<section class="container">
+<section class="dashboard padding-section primary-bg-color">
   <!-- NAVBAR -->
-  <nav class="container">
+  <nav>
     <ul>
-      <li>
+      <li class="dashboard-title secondary-color">
         <span class="titillium-web-black txt-uppercase">Magic Fly</span>
-        <span class="lato-thin txt-uppercase">Dashboard</span>
+        <span class="lato-thin">Dashboard</span>
       </li>
     </ul>
     <ul>
       <li>
         <form action="/logout" method="post">
-          <button type="submit" class="outline">Déconnexion</button>
+          <button class="logout-button secondary-bg-color primary-color" type="submit" class="outline">
+            Déconnexion
+          </button>
         </form>
       </li>
     </ul>
   </nav>
 
-  <form class="grid" action="/add-picture" method="post" enctype="multipart/form-data">
-    <input type="file" name="image" accept="image/*" required />
-    <button type="submit" class="secondary">Télécharger l'image</button>
-  </form>
-
-  <hr />
-
-  <!-- DASHBOARD PICTURES -->
-  <section>
-    <!-- Affichage et gestion des photos existantes -->
-    <% if (pictures && pictures.length > 0) { %>
-    <div class="dashboard-pictures">
-      <% pictures.forEach(picture => { %>
-      <div class="photo-card">
-        <div class="photo-wrapper">
-          <img src="<%= picture.url %>" alt="Image <%= picture.id %>" loading="lazy" />
-        </div>
-        <div class="photo-info">
-          <form
-            action="/delete-picture/<%= picture.recordId %>/<%= encodeURIComponent(picture.cloudinary_id) %>"
-            method="post"
-          >
-            <button type="submit" class="secondary outline">Supprimer</button>
-          </form>
-        </div>
+  <section class="dashboard-videos primary-bg-color">
+    <form class="video-form-add" action="/add-video-link" method="post">
+      <div>
+        <input class="input-form-video" type="url" name="url" placeholder="URL Video Youtube" />
       </div>
-      <% }) %>
+      <button type="submit">Ajouter</button>
+    </form>
+
+    <div class="dashboard-videos-gallery">
+      <% if(videos && videos.length > 0) { %> <% videos.forEach((video) => { %>
+      <div class="video-gallery secondary-bg-color">
+        <iframe
+          src="<%= video.url %>"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        >
+        </iframe>
+        <form
+          class="video-form-delete"
+          action="/delete-video-link/<%= video.recordId %>"
+          method="post"
+          class="delete-video-form"
+        >
+          <button type="submit" class="delete-btn">Supprimer</button>
+        </form>
+      </div>
+      <% });} %>
     </div>
-    <% } else { %>
-    <p class="txt-ctr"><i>Aucune photo disponible.</i></p>
-    <% } %>
   </section>
 </section>
 

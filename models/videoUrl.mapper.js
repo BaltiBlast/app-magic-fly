@@ -13,6 +13,20 @@ class VideoUrlMapper extends CoreMapper {
 
     return urls;
   }
+
+  async addVideoUrl(urlEmbed) {
+    await this.db(this.tableName).create([
+      {
+        fields: {
+          url: urlEmbed,
+        },
+      },
+    ]);
+  }
+
+  async deleteVideoLink(recordId) {
+    await this.db(this.tableName).destroy(recordId);
+  }
 }
 
 module.exports = VideoUrlMapper;
