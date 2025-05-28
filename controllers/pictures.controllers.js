@@ -1,14 +1,31 @@
 const cloudinary = require("../configs/cloudinary");
 const { PicturesMapper } = require("../models/index.mapper");
+const sharp = require("sharp");
 
 const picturesControllers = {
   postAddPicture: async (req, res) => {
     const uploadedImage = req.files.image;
 
     try {
-      const response = await cloudinary.uploader.upload(uploadedImage.tempFilePath, {
-        folder: "magic-fly",
-        resource_type: "image",
+      const convertedBuffer = await sharp(uploadedImage.tempFilePath)
+        .jpeg({ quality: 90, progressive: true, mozjpeg: true })
+        .withMetadata(false)
+        .toBuffer();
+
+      const response = await new Promise((resolve, reject) => {
+        cloudinary.uploader
+          .upload_stream(
+            {
+              folder: "magic-fly",
+              resource_type: "image",
+              format: "jpg",
+            },
+            (error, result) => {
+              if (error) reject(error);
+              else resolve(result);
+            }
+          )
+          .end(convertedBuffer);
       });
 
       const pictureData = {
