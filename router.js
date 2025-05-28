@@ -8,6 +8,7 @@ const { getLogin, postLogin, postLogout } = require("./controllers/login.control
 const { getDashboard } = require("./controllers/dashboard.controllers");
 const { postAddPicture, postDeletePicture } = require("./controllers/pictures.controllers");
 const { postDeleteVideoLink, postAddVideoLink } = require("./controllers/videos.controllers");
+const { postSendEmail } = require("./controllers/sendEmail.controllers");
 
 router.get("/", getLandingPage);
 
@@ -22,5 +23,7 @@ router.post("/delete-video-link/:id", ensureAuthenticated, postDeleteVideoLink);
 
 router.post("/add-picture", ensureAuthenticated, postAddPicture);
 router.post("/delete-picture/:recordId/:publicId", ensureAuthenticated, postDeletePicture);
+
+router.post("/send-email", postSendEmail);
 
 module.exports = router;
