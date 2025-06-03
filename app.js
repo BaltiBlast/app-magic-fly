@@ -3,6 +3,7 @@ const fileUpload = require("express-fileupload");
 require("dotenv").config();
 const session = require("express-session");
 const router = require("./router");
+const sessionToLocals = require("./middlewares/sessionToLocals");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -30,6 +31,8 @@ app.use(
     tempFileDir: "/tmp/",
   })
 );
+
+app.use(sessionToLocals);
 app.use(router);
 
 app.listen(PORT, () => {

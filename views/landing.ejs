@@ -73,36 +73,66 @@
     <p>📞 06 81 08 20 64</p>
     <p>✉️ groupemagicfly@gmail.com</p>
   </div>
+
   <form action="/send-email" method="post">
+    <!-- Success message form -->
+    <% if (success) { %>
+    <p class="success-color form-message bold"><%= success %></p>
+    <% } %>
     <div>
       <label class="lato-regular bold" for="fullName">Nom / Prénom</label>
-      <input name="fullName" placeholder="Jean Dupont" autocomplete="given-name" required />
+      <input
+        name="fullName"
+        placeholder="Jean Dupont"
+        autocomplete="given-name"
+        value="<%= formData.fullName || '' %>"
+        required
+      />
     </div>
     <div>
       <label class="lato-regular bold" for="email">Adresse email</label>
-      <input type="email" name="email" placeholder="jean-dupont@mail.com" autocomplete="email" required />
+      <input
+        type="email"
+        name="email"
+        placeholder="jean.dupont@gmail.com"
+        autocomplete="email"
+        value="<%= formData.email || '' %>"
+        required
+      />
     </div>
 
     <div>
       <label class="lato-regular bold" for="phone">Téléphone</label>
-      <input type="number" name="phone" placeholder="06 01 02 03 04" autocomplete="email" required />
+      <input
+        type="number"
+        name="phone"
+        placeholder="06 01 02 03 04"
+        autocomplete="email"
+        value="<%= formData.phone || '' %>"
+        required
+      />
     </div>
 
     <div>
       <label class="lato-regular bold" for="subject">Objet</label>
       <select name="subject" required>
-        <option value="" disabled selected>Choisissez un objet</option>
-        <option value="Demande de devis">Demande de devis</option>
-        <option value="Demande d'informations">Demande d'informations</option>
-        <option value="Autre">Autre</option>
+        <option value="" disabled <%= !formData.subject ? 'selected' : '' %>>Choisissez un objet</option>
+        <option value="Demande de devis" <%= formData.subject === 'Demande de devis' ? 'selected' : '' %>>Demande de devis</option>
+        <option value="Demande d'informations" <%= formData.subject === 'Demande d\'informations' ? 'selected' : '' %>>Demande d'informations</option>
+        <option value="Autre" <%= formData.subject === 'Autre' ? 'selected' : '' %>>Autre</option>
       </select>
     </div>
 
     <div>
       <label class="lato-regular bold" for="message">Message</label
-      ><textarea name="message" placeholder="Votre message" rows="7" required></textarea>
-    </div>
+      ><textarea name="message" placeholder="Votre message" rows="7" required><%= formData.message || '' %></textarea>
 
+    </div>
+    <!-- Error message form -->
+    <% if (error) { %>
+    <p class="error-color form-message bold"><%= error %></p>
+    <% } %>
+    <div class="g-recaptcha" data-sitekey="6LcXOlQrAAAAAPzzxZ-iceHByRIISG4B5ifNNu1h"></div>
     <input class="primary-bg-color secondary-color" type="submit" value="Envoyer" />
   </form>
 </footer>

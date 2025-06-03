@@ -4,6 +4,8 @@
   --white-color: #fff;
   --white-colore-hover: #ececec;
   --input-border-color: #ccc;
+  --error-color: red;
+  --success-color: #155724;
 }
 
 .primary-color {
@@ -20,4 +22,12 @@
 
 .secondary-bg-color {
   background-color: var(--white-color);
+}
+
+.error-color {
+  color: var(--error-color);
+}
+
+.success-color {
+  color: var(--success-color);
 }
