@@ -159,9 +159,22 @@ footer p {
   margin-bottom: 1rem;
 }
 
+footer a {
+  margin: 2rem 0.7rem;
+}
+
+footer a img {
+  width: 2rem;
+}
+
 .form-message {
   font-size: 1rem;
   margin: 0;
+}
+
+.footer-infos {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 /* ------------------------------------------------------------------------------------------ */
@@ -320,11 +333,6 @@ footer p {
 
   footer form {
     width: 100%;
-  }
-
-  .footer-infos {
-    text-align: center;
-    margin-bottom: 3rem;
   }
 }
 

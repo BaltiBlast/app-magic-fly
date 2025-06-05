@@ -72,6 +72,12 @@
   <div class="footer-infos">
     <p>📞 06 81 08 20 64</p>
     <p>✉️ groupemagicfly@gmail.com</p>
+    <a href="https://www.facebook.com/profile.php?id=61577032910207" target="_blank">
+      <img src="/assets/images/facebook_logo.png" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/magic.fly.musique.live/" target="_blank">
+      <img src="/assets/svg/instagram_logo.svg" alt="Instagram">
+    </a>
   </div>
 
   <form action="/send-email" method="post">
@@ -124,9 +130,8 @@
     </div>
 
     <div>
-      <label class="lato-regular bold" for="message">Message</label
-      ><textarea name="message" placeholder="Votre message" rows="7" required><%= formData.message || '' %></textarea>
-
+      <label class="lato-regular bold" for="message">Message</label>
+      <textarea name="message" placeholder="Votre message" rows="7" required><%= formData.message || '' %></textarea>
     </div>
     <!-- Error message form -->
     <% if (error) { %>
